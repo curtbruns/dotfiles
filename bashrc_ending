@@ -1,0 +1,5 @@
+# Must do this first: curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+source ~/.bash_git
+source ~/.bash_functions
+source ~/.alias
+export PATH=$PATH:~/bin

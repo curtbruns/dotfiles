@@ -1,0 +1,57 @@
+alias ls="ls -G --color"
+alias ltr='ls -ltr'
+alias ll='ls -al'
+alias l='ls'
+alias ldir='ls -al | grep ^d'
+alias ..='cd ..'
+alias h='history'
+alias llink='ls -al | grep ^l'
+alias ltxt='ls -al *.txt'
+alias startvnc1='vncserver -geometry 1920x1080 :1'
+alias startvnc2='vncserver -geometry 1280x1024 :2'
+alias startvnc3='vncserver -geometry 1366x768  :3'
+alias restart1='vncserver -kill :1 && vncserver -geometry 1920x1080 :1'
+#alias format_code='indent -linux -i3 -nut -l120 -fc1 < source.c  -o output_file.c' 
+alias vi='vim'
+alias cls='clear;'
+alias dump_hex='od -A x -t x4  '
+alias hex2bin=hex2bin.pl
+
+set_proxy()
+{
+    export http_proxy=http://proxy.fm.intel.com:911
+    export ftp_proxy=http://proxy-us.intel.com:911
+    export https_proxy=http://proxy.fm.intel.com:911
+    export socks_proxy="proxy-us.intel.com:1080"
+    export no_proxy='127.0.0.1'
+    cp ~/.ssh/proxy_config ~/.ssh/config
+    git config --global https.proxy "http://proxy.fm.intel.com:911"
+    git config --global http.proxy "http://proxy.fm.intel.com:911"
+}
+
+unset_proxy()
+{
+    unset http_proxy https_proxy socks_proxy ftp_proxy no_proxy
+    git config --global --unset https.proxy
+    git config --global --unset http.proxy
+    cp ~/.ssh/no_proxy_config ~/.ssh/config
+}
+
+export GOBJCOPY='objcopy'
+#alias testAddress='python /Users/cebruns/source/gMaps/gmaps/testAddress.py '
+alias dnsflush='sudo discoveryutil udnsflushcaches'
+
+# ~/.ssh/proxy_config
+#
+#Host longboardsoftware.com
+#    ProxyCommand nc -x proxy-us.intel.com:1080 %h %p
+#Host ceb-ubu14.ch.intel.com
+#    ServerAliveInterval 10
+#StrictHostKeyChecking no
+#ServerAliveInterval 30
+
+# ~/.ssh/no_proxy_config
+# ...Hosts are commented out
+#StrictHostKeyChecking no
+#ServerAliveInterval 30
+
